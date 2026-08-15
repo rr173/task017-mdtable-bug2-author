@@ -137,7 +137,7 @@ func Validate(header []string, rows [][]string, aligns []Alignment) error {
 		return fmt.Errorf("对齐方式数组长度 %d 与表头列数 %d 不一致", len(aligns), len(header))
 	}
 	for i, a := range aligns {
-		if a <= AlignDefault || a > AlignRight {
+		if a < AlignDefault || a > AlignRight {
 			return fmt.Errorf("第 %d 列对齐方式非法：%d", i, a)
 		}
 	}
